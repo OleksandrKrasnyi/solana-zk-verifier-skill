@@ -1,5 +1,8 @@
 # solana-zk-verifier-skill
 
+[![checks](https://github.com/OleksandrKrasnyi/solana-zk-verifier-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/OleksandrKrasnyi/solana-zk-verifier-skill/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 A [Claude Code](https://claude.com/claude-code) skill for the
 [Solana AI Kit](https://github.com/solanabr/solana-ai-kit): **verify a custom zero-knowledge
 (Groth16/SNARK) proof on-chain inside your own Solana program** — the `groth16-solana` / `alt_bn128`
@@ -76,6 +79,13 @@ project's source.
 
 `groth16-solana 0.2` · `solana-bn254 2` · `arkworks 0.5` (`ark-groth16`/`ark-bn254`/`ark-r1cs-std`).
 Pin exact versions in your `Cargo.toml` — a verifier is security-critical.
+
+## Contributing & project docs
+
+- [`CONTRIBUTING.md`](./CONTRIBUTING.md) — how to propose changes; the precision/honesty bar for content.
+- [`SECURITY.md`](./SECURITY.md) — security guidance, honest caveats (devnet ≠ mainnet, non-production setup), and how to report an issue.
+- [`AI-USAGE.md`](./AI-USAGE.md) — how this skill was authored (Claude Code) and how its content was verified.
+- [`CHANGELOG.md`](./CHANGELOG.md) — version history.
 
 ## License
 

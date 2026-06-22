@@ -1,0 +1,36 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Registry entry is valid JSON
+        run: python3 -m json.tool skill-registry-entry.json > /dev/null
+
+      - name: Installer script is sound
+        run: |
+          bash -n install.sh
+          shellcheck --severity=error install.sh   # shellcheck is preinstalled on ubuntu-latest
+
+      - name: Skill structure & frontmatter
+        run: |
+          set -e
+          test -f skill/SKILL.md
+          for f in groth16-on-solana proof-serialization verifying-key limits-and-gotchas trusted-setup; do
+            test -f "skill/$f.md" || { echo "missing skill/$f.md"; exit 1; }
+          done
+          head -n1 skill/SKILL.md | grep -qx -- '---'        # SKILL.md starts with YAML frontmatter
+          grep -q '^name: solana-zk-verifier$' skill/SKILL.md
+          test -f commands/verify-zk-proof.md
+          test -f LICENSE
+          echo "structure OK"
