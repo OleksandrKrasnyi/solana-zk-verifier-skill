@@ -1,0 +1,23 @@
+{
+  "id": "solana-zk-verifier",
+  "name": "Solana ZK Verifier (Groth16 on-chain)",
+  "type": "skill",
+  "domain": "solana-zk",
+  "description": "Verify custom Groth16/SNARK proofs on-chain on Solana via groth16-solana / alt_bn128: proof & VK serialization (A-negation, G2 c0/c1 order, big-endian, public-input order), embedding and KAT-pinning the verifying key, isolating many circuits by VK+arity, compute-budget limits with measured CU, and honest trusted-setup guidance. Routes ZK-compression to Light, confidential transfers to Token-2022, and formal verification to qedgen.",
+  "source": "https://github.com/OleksandrKrasnyi/solana-zk-verifier-skill",
+  "install": {
+    "method": "git-submodule",
+    "command": "git submodule add https://github.com/OleksandrKrasnyi/solana-zk-verifier-skill .claude/skills/ext/solana-zk-verifier",
+    "env": []
+  },
+  "license": "MIT",
+  "maintainer": "OleksandrKrasnyi",
+  "signal": {
+    "stars": null,
+    "last_commit": "2026-06-22",
+    "reputability": "emerging — verify before install"
+  },
+  "default_installed": false,
+  "safety": "clean — documentation-only skill (Markdown); install.sh only copies files, runs no executables, makes no network calls, and uses no env vars or secrets",
+  "tags": ["zk", "groth16", "snark", "proof-verification", "alt_bn128", "arkworks", "solana"]
+}

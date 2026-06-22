@@ -1,0 +1,8 @@
+# OS / editor cruft
+.DS_Store
+*.swp
+*~
+
+# Nothing is built in this repo (docs-only), but keep these out just in case:
+/target
+node_modules/
